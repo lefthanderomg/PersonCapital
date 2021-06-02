@@ -1,8 +1,8 @@
-package andrey.murzin.com.personcapital.ui.home
+package andrey.murzin.com.personcapital.presentation.home
 
 import andrey.murzin.com.personcapital.R
-import andrey.murzin.com.personcapital.ui.investmentportfolio.InvestmentPortfolio
-import andrey.murzin.com.personcapital.ui.oprationhistory.OperationHistory
+import andrey.murzin.com.personcapital.presentation.investmentportfolio.InvestmentPortfolio
+import andrey.murzin.com.personcapital.presentation.oprationhistory.OperationHistory
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.material.BottomNavigation
@@ -11,7 +11,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource

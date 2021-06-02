@@ -6,11 +6,12 @@ import org.apache.poi.ss.usermodel.Row
 import org.apache.poi.xssf.usermodel.XSSFSheet
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import java.io.InputStream
+import javax.inject.Inject
 
 /**
  * Parser for xlsl report from tinkoff broker
  */
-class TinkoffBrokerReportXLSXParser : XLSXParser<List<BrokerReportModel>> {
+class TinkoffBrokerReportXLSXParser @Inject constructor(): XLSXParser {
 
     override fun parse(stream: InputStream): List<BrokerReportModel> {
         val workbook = XSSFWorkbook(stream)

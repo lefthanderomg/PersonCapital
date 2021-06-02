@@ -1,10 +1,9 @@
-package andrey.murzin.com.personcapital.ui
+package andrey.murzin.com.personcapital.presentation
 
 import andrey.murzin.com.personcapital.PersonNavGraph
-import andrey.murzin.com.personcapital.ui.home.HomeSections
-import andrey.murzin.com.personcapital.ui.home.PersonCapitalBottomBar
-import andrey.murzin.com.personcapital.ui.theme.PersonCapitalTheme
-import android.util.Log
+import andrey.murzin.com.personcapital.presentation.home.HomeSections
+import andrey.murzin.com.personcapital.presentation.home.PersonCapitalBottomBar
+import andrey.murzin.com.personcapital.presentation.theme.PersonCapitalTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
@@ -26,7 +25,6 @@ fun PersonCapitalApp() {
                     PersonCapitalBottomBar(tabs = tabs, navController = navController)
                 }
             ) { paddingValue ->
-                Log.d("PersonCapitalApp", "paddingValue = $paddingValue")
                 PersonNavGraph(
                     navController = navController,
                     startDestination = tabs.first().route,

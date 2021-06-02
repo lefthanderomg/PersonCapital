@@ -2,7 +2,6 @@ package andrey.murzin.com.personcapital.data.model
 
 /**
  * Data model broker report
- *
  */
 class BrokerReportModel(
     val id: String,

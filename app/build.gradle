@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -54,10 +56,13 @@ dependencies {
 
     implementation files('libs/poishadow-all.jar')
 
+    //test start
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    //test end
 
+    //compose start
     implementation "androidx.navigation:navigation-compose:2.4.0-alpha01"
     implementation "androidx.activity:activity-compose:1.3.0-alpha08"
     implementation "androidx.compose.ui:ui:$compose_version"
@@ -68,4 +73,13 @@ dependencies {
     implementation "androidx.compose.material:material-icons-core:$compose_version"
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "com.google.accompanist:accompanist-insets:0.10.0"
+    //compose end
+
+    //dagger hilt start
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    implementation "androidx.hilt:hilt-navigation-compose:$hilt_navigation_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    //dagger hilt end
+
+
 }

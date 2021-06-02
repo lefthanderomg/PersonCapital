@@ -1,7 +1,9 @@
 package andrey.murzin.com.personcapital
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class App : Application() {
 
     /** Settings for poi apache xml */

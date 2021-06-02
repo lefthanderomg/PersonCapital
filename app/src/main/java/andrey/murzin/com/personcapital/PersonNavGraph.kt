@@ -1,6 +1,6 @@
 package andrey.murzin.com.personcapital
 
-import andrey.murzin.com.personcapital.ui.home.addHomeGraph
+import andrey.murzin.com.personcapital.presentation.home.addHomeGraph
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost

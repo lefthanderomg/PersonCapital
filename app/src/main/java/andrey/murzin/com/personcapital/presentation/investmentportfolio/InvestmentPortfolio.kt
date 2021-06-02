@@ -1,4 +1,4 @@
-package andrey.murzin.com.personcapital.ui.investmentportfolio
+package andrey.murzin.com.personcapital.presentation.investmentportfolio
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -7,7 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun InvestmentPortfolio(modifier: Modifier) {
+fun InvestmentPortfolio(
+    modifier: Modifier,
+) {
     Box(modifier = modifier.fillMaxSize()) {
         Text(text = "InvestmentPortfolio")
     }

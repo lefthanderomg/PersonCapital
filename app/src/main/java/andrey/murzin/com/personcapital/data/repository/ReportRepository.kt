@@ -3,18 +3,21 @@ package andrey.murzin.com.personcapital.data.repository
 import andrey.murzin.com.personcapital.R
 import andrey.murzin.com.personcapital.data.model.BrokerReportModel
 import andrey.murzin.com.personcapital.data.parser.XLSXParser
+import andrey.murzin.com.personcapital.data.model.ResultWrapper
+import andrey.murzin.com.personcapital.domain.repository.IReportRepository
+import andrey.murzin.com.personcapital.utils.safeCall
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 /** Repository for broker reports */
-class ReportRepository(
+class ReportRepository @Inject constructor(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
-    private val parserXLSXParser: XLSXParser<List<BrokerReportModel>>,
+    private val parserXLSXParser: XLSXParser,
     private val resourceManager: ResourceManager,
-) {
+) : IReportRepository {
 
-    suspend fun getReports(): List<BrokerReportModel> = withContext(dispatcher) {
+    override suspend fun getReports(): ResultWrapper<List<BrokerReportModel>> = safeCall(dispatcher = dispatcher) {
         val stream = resourceManager.getRawStream(R.raw.mock_data)
         parserXLSXParser.parse(stream)
     }

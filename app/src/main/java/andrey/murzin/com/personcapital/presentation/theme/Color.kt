@@ -1,4 +1,4 @@
-package andrey.murzin.com.personcapital.ui.theme
+package andrey.murzin.com.personcapital.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
