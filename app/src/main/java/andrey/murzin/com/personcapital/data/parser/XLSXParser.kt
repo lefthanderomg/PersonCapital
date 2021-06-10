@@ -1,9 +1,8 @@
 package andrey.murzin.com.personcapital.data.parser
 
-import andrey.murzin.com.personcapital.data.model.BrokerReportModel
+import andrey.murzin.com.personcapital.domain.model.BrokerReport
 import java.io.InputStream
 
 interface XLSXParser {
-
-    fun parse(stream: InputStream): List<BrokerReportModel>
+    fun parse(stream: InputStream): List<BrokerReport>
 }

@@ -1,8 +1,8 @@
 package andrey.murzin.com.personcapital.domain.repository
 
-import andrey.murzin.com.personcapital.data.model.BrokerReportModel
-import andrey.murzin.com.personcapital.data.model.ResultWrapper
+import andrey.murzin.com.personcapital.domain.model.BrokerReport
+import andrey.murzin.com.personcapital.domain.model.ResultWrapper
 
 interface IReportRepository {
-    suspend fun getReports(): ResultWrapper<List<BrokerReportModel>>
+    suspend fun getReports(): ResultWrapper<List<BrokerReport>>
 }

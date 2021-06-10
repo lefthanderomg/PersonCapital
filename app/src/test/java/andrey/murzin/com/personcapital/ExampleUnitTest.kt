@@ -1,8 +1,16 @@
 package andrey.murzin.com.personcapital
 
 import org.junit.Test
+import java.math.BigDecimal
+import java.text.DecimalFormat
+import java.text.NumberFormat
+import java.util.*
+import org.apache.xmlbeans.GDurationBuilder.stripTrailingZeros
 
-import org.junit.Assert.*
+import androidx.annotation.NonNull
+import org.apache.xmlbeans.GDurationBuilder
+import java.text.DecimalFormatSymbols
+
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -12,6 +20,9 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+
+        println()
     }
+
+
 }

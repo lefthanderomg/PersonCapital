@@ -1,6 +1,7 @@
 package andrey.murzin.com.personcapital.data.parser
 
-import andrey.murzin.com.personcapital.data.model.BrokerReportModel
+import andrey.murzin.com.personcapital.domain.manager.MoneyManager
+import andrey.murzin.com.personcapital.domain.model.BrokerReport
 import androidx.core.text.isDigitsOnly
 import org.apache.poi.ss.usermodel.Row
 import org.apache.poi.xssf.usermodel.XSSFSheet
@@ -11,13 +12,15 @@ import javax.inject.Inject
 /**
  * Parser for xlsl report from tinkoff broker
  */
-class TinkoffBrokerReportXLSXParser @Inject constructor(): XLSXParser {
+class TinkoffBrokerReportXLSXParser @Inject constructor(
+    private val priceManager: MoneyManager,
+) : XLSXParser {
 
-    override fun parse(stream: InputStream): List<BrokerReportModel> {
+    override fun parse(stream: InputStream): List<BrokerReport> {
         val workbook = XSSFWorkbook(stream)
         val sheet: XSSFSheet = workbook.getSheetAt(0)
 
-        val brokerReports = mutableListOf<BrokerReportModel>()
+        val brokerReports = mutableListOf<BrokerReport>()
         val mapReference = mutableMapOf<String, Int>()
 
         fun Row.getCellValueByKey(key: String): String = getCellValue(mapReference[key])
@@ -38,31 +41,32 @@ class TinkoffBrokerReportXLSXParser @Inject constructor(): XLSXParser {
 
             if (cell.isNotEmpty() && cell.isDigitsOnly()) {
                 brokerReports.add(
-                    BrokerReportModel(
+                    BrokerReport(
                         id = row.getCellValueByKey(KEY_REPORT_NUMBER),
                         date = row.getCellValueByKey(KEY_REPORT_DATE),
                         type = row.getCellValueByKey(KEY_REPORT_TYPE),
                         shortName = row.getCellValueByKey(KEY_REPORT_SHORT_NAME),
                         ticker = row.getCellValueByKey(KEY_REPORT_TICKER),
-                        unitPrice = row.getCellValueByKey(KEY_UNIT_PRICE),
-                        unitCurrency = row.getCellValueByKey(KEY_UNIT_CURRENCY),
+                        unitPrice = priceManager.getMoney(
+                            price = row.getCellValueByKey(KEY_UNIT_PRICE),
+                            currency = row.getCellValueByKey(KEY_UNIT_CURRENCY)
+                        ),
                         count = row.getCellValueByKey(KEY_COUNT),
-                        totalPrice = row.getCellValueByKey(KEY_TOTAL_PRICE),
-                        brokerCommissionPrice = row.getCellValueByKey(KEY_BROKER_COMMISSIONS_PRICE),
-                        brokerCommissionCurrency = row.getCellValueByKey(
-                            KEY_BROKER_COMMISSIONS_CURRENCY
+                        totalPrice = priceManager.getMoney(
+                            price = row.getCellValueByKey(KEY_TOTAL_PRICE),
+                            currency = row.getCellValueByKey(KEY_TOTAL_PRICE_CURRENCY)
                         ),
-                        exchangeCommissionPrice = row.getCellValueByKey(
-                            KEY_EXCHANGE_COMMISSIONS_PRICE
+                        brokerCommissionPrice = priceManager.getMoney(
+                            price = row.getCellValueByKey(KEY_BROKER_COMMISSIONS_PRICE),
+                            currency = row.getCellValueByKey(KEY_BROKER_COMMISSIONS_CURRENCY)
                         ),
-                        exchangeCommissionCurrency = row.getCellValueByKey(
-                            KEY_EXCHANGE_COMMISSIONS_CURRENCY
+                        exchangeCommissionPrice = priceManager.getMoney(
+                            price = row.getCellValueByKey(KEY_EXCHANGE_COMMISSIONS_PRICE),
+                            currency = row.getCellValueByKey(KEY_EXCHANGE_COMMISSIONS_CURRENCY)
                         ),
-                        clearingCenterCommissionPrice = row.getCellValueByKey(
-                            KEY_CLEARING_CENTER_COMMISSIONS_PRICE
-                        ),
-                        clearingCenterCommissionCurrency = row.getCellValueByKey(
-                            KEY_CLEARING_CENTER_COMMISSIONS_CURRENCY
+                        clearingCenterCommissionPrice = priceManager.getMoney(
+                            price = row.getCellValueByKey(KEY_CLEARING_CENTER_COMMISSIONS_PRICE),
+                            currency = row.getCellValueByKey(KEY_CLEARING_CENTER_COMMISSIONS_CURRENCY)
                         ),
                     )
                 )
@@ -89,6 +93,7 @@ class TinkoffBrokerReportXLSXParser @Inject constructor(): XLSXParser {
         private const val KEY_UNIT_CURRENCY = "Валюта цены"
         private const val KEY_COUNT = "Количество"
         private const val KEY_TOTAL_PRICE = "Сумма сделки"
+        private const val KEY_TOTAL_PRICE_CURRENCY = "Валюта расчетов"
         private const val KEY_BROKER_COMMISSIONS_PRICE = "Комиссия брокера"
         private const val KEY_BROKER_COMMISSIONS_CURRENCY = "Валюта комиссии"
         private const val KEY_EXCHANGE_COMMISSIONS_PRICE = "Комиссия биржи"

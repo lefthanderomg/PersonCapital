@@ -1,6 +1,6 @@
 package andrey.murzin.com.personcapital.utils
 
-import andrey.murzin.com.personcapital.data.model.ResultWrapper
+import andrey.murzin.com.personcapital.domain.model.ResultWrapper
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 
@@ -10,7 +10,7 @@ suspend fun <T> safeCall(dispatcher: CoroutineDispatcher, call: suspend () -> T)
             val result = call.invoke()
             ResultWrapper.Success(result)
         } catch (throwable: Throwable) {
-            ResultWrapper.Error
+            ResultWrapper.Error(throwable)
         }
     }
 }

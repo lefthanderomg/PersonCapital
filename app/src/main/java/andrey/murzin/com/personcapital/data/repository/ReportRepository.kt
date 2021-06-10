@@ -1,9 +1,9 @@
 package andrey.murzin.com.personcapital.data.repository
 
 import andrey.murzin.com.personcapital.R
-import andrey.murzin.com.personcapital.data.model.BrokerReportModel
 import andrey.murzin.com.personcapital.data.parser.XLSXParser
-import andrey.murzin.com.personcapital.data.model.ResultWrapper
+import andrey.murzin.com.personcapital.domain.model.BrokerReport
+import andrey.murzin.com.personcapital.domain.model.ResultWrapper
 import andrey.murzin.com.personcapital.domain.repository.IReportRepository
 import andrey.murzin.com.personcapital.utils.safeCall
 import kotlinx.coroutines.CoroutineDispatcher
@@ -17,7 +17,7 @@ class ReportRepository @Inject constructor(
     private val resourceManager: ResourceManager,
 ) : IReportRepository {
 
-    override suspend fun getReports(): ResultWrapper<List<BrokerReportModel>> = safeCall(dispatcher = dispatcher) {
+    override suspend fun getReports(): ResultWrapper<List<BrokerReport>> = safeCall(dispatcher = dispatcher) {
         val stream = resourceManager.getRawStream(R.raw.mock_data)
         parserXLSXParser.parse(stream)
     }
