@@ -18,13 +18,17 @@ class OperationHistoryReducer : Reducer<OperationHistoryState, OperationHistoryA
             error = null,
             isRefreshing = false
         )
+        is OperationHistoryAction.Refresh -> state.copy(
+            isRefreshing = true,
+            error = null,
+            isLoading = false
+        )
         is OperationHistoryAction.Success -> state.copy(
             isLoading = false,
             error = null,
             isRefreshing = false,
             reports = action.result
         )
-        is OperationHistoryAction.GetOperationHistory -> state.copy(isRefreshing = state.reports.isNotEmpty())
+        is OperationHistoryAction.GetOperationHistory -> state
     }
-
 }

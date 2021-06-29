@@ -8,12 +8,15 @@ import andrey.murzin.com.personcapital.oprationhistory.OperationHistoryState
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
 import dagger.hilt.components.SingletonComponent
 
-@InstallIn(SingletonComponent::class)
+@InstallIn(ViewModelComponent::class)
 @Module
 object OperationHistoryModule {
 
+    @ViewModelScoped
     @Provides
     fun provideOperationHistoryStore(
         repository: IReportRepository
