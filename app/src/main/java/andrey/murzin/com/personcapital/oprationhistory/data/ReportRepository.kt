@@ -19,6 +19,7 @@ class ReportRepository @Inject constructor(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
     private val parserXLSXParser: XLSXParser,
     private val resourceManager: ResourceManager,
+    private val reportDao: ReportDao,
 ) : IReportRepository {
 
     override fun getReports(): Flow<ResultWrapper<List<BrokerReport>>> = flow {

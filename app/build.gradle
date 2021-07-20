@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'kotlinx-serialization'
 }
 
 android {
@@ -82,4 +83,13 @@ dependencies {
     implementation "androidx.hilt:hilt-navigation-compose:$hilt_navigation_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
     //dagger hilt end
+
+    //room start
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    //room end
+
+    //kotlin serialization start
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
+    //kotlin serialization end
 }

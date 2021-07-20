@@ -84,7 +84,7 @@ private fun Loading(modifier: Modifier) {
 }
 
 @Composable
-fun ErrorScreen(isRefreshing: Boolean, refresh: () -> Unit) {
+private fun ErrorScreen(isRefreshing: Boolean, refresh: () -> Unit) {
     SwipeRefresh(
         state = rememberSwipeRefreshState(isRefreshing),
         onRefresh = refresh,
@@ -92,7 +92,7 @@ fun ErrorScreen(isRefreshing: Boolean, refresh: () -> Unit) {
 }
 
 @Composable
-fun EmptyScreen(isRefreshing: Boolean, refresh: () -> Unit) {
+private fun EmptyScreen(isRefreshing: Boolean, refresh: () -> Unit) {
     SwipeRefresh(
         state = rememberSwipeRefreshState(isRefreshing),
         onRefresh = refresh,

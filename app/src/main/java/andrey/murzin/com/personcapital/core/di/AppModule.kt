@@ -1,7 +1,10 @@
 package andrey.murzin.com.personcapital.core.di
 
+import andrey.murzin.com.personcapital.core.data.db.PersonCapitalDb
+import andrey.murzin.com.personcapital.core.data.db.PersonCapitalDb.Companion.DB_NAME
 import andrey.murzin.com.personcapital.core.data.repository.ResourceManager
 import android.content.Context
+import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,5 +25,10 @@ object AppModule {
     @Singleton
     @Provides
     fun provideIOCoroutineDispatcher() = Dispatchers.IO
+
+    @Singleton
+    @Provides
+    fun provideDatabase(@ApplicationContext context: Context) =
+        Room.databaseBuilder(context, PersonCapitalDb::class.java, DB_NAME).build()
 }
 
