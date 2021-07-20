@@ -1,9 +1,9 @@
 package andrey.murzin.com.personcapital.presentation
 
 import andrey.murzin.com.personcapital.PersonNavGraph
+import andrey.murzin.com.personcapital.core.theme.PersonCapitalTheme
 import andrey.murzin.com.personcapital.home.HomeSections
 import andrey.murzin.com.personcapital.home.PersonCapitalBottomBar
-import andrey.murzin.com.personcapital.core.theme.PersonCapitalTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
@@ -28,7 +28,9 @@ fun PersonCapitalApp() {
                 PersonNavGraph(
                     navController = navController,
                     startDestination = tabs.first().route,
-                    modifier = Modifier.padding(paddingValue).statusBarsPadding(),
+                    modifier = Modifier
+                        .padding(paddingValue)
+                        .statusBarsPadding(),
                 )
             }
         }

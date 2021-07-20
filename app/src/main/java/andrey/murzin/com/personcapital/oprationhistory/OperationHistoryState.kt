@@ -12,7 +12,8 @@ data class OperationHistoryState(
 ) {
 
     companion object {
-        val EMPTY = OperationHistoryState(emptyList(),
+        val EMPTY = OperationHistoryState(
+            emptyList(),
             isRefreshing = false,
             isLoading = false,
             error = null

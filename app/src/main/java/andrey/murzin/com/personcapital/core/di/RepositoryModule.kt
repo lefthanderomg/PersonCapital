@@ -12,5 +12,5 @@ import dagger.hilt.components.SingletonComponent
 interface RepositoryModule {
 
     @Binds
-    fun bindReportRepository(repository: ReportRepository) : IReportRepository
+    fun bindReportRepository(repository: ReportRepository): IReportRepository
 }

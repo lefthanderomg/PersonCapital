@@ -8,7 +8,7 @@ abstract class BaseViewModel<A, S>(private val store: Store<A, S>) : ViewModel()
     @ExperimentalCoroutinesApi
     private val wiring = store.wire(viewModelScope)
 
-    val state =  store.state
+    val state = store.state
 
     fun action(action: A) = store.doAction(action, viewModelScope)
 }

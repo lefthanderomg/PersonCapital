@@ -1,8 +1,8 @@
 package andrey.murzin.com.personcapital.oprationhistory
 
-import andrey.murzin.com.personcapital.oprationhistory.model.BrokerReport
 import andrey.murzin.com.personcapital.core.theme.spaceMedium
 import andrey.murzin.com.personcapital.core.utils.getText
+import andrey.murzin.com.personcapital.oprationhistory.model.BrokerReport
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn

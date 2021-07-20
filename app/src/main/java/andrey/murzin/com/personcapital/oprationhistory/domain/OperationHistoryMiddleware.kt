@@ -7,9 +7,8 @@ import andrey.murzin.com.personcapital.oprationhistory.OperationHistoryState
 import andrey.murzin.com.personcapital.oprationhistory.model.ResultWrapper
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.*
-import javax.inject.Inject
 
-class OperationHistoryMiddleware (
+class OperationHistoryMiddleware(
     private val reportRepository: IReportRepository
 ) : Middleware<OperationHistoryAction, OperationHistoryState> {
 

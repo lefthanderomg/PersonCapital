@@ -66,7 +66,9 @@ class TinkoffBrokerReportXLSXParser @Inject constructor(
                         ),
                         clearingCenterCommissionPrice = priceManager.getMoney(
                             price = row.getCellValueByKey(KEY_CLEARING_CENTER_COMMISSIONS_PRICE),
-                            currency = row.getCellValueByKey(KEY_CLEARING_CENTER_COMMISSIONS_CURRENCY)
+                            currency = row.getCellValueByKey(
+                                KEY_CLEARING_CENTER_COMMISSIONS_CURRENCY
+                            )
                         ),
                     )
                 )
