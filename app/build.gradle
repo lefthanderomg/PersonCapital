@@ -74,7 +74,7 @@ dependencies {
     implementation "androidx.compose.material:material-icons-core:$compose_version"
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "com.google.accompanist:accompanist-insets:0.10.0"
-    implementation "com.google.accompanist:accompanist-swiperefresh:0.10.0"
+    implementation "com.google.accompanist:accompanist-swiperefresh:0.14.0"
     //compose end
 
     //dagger hilt start
