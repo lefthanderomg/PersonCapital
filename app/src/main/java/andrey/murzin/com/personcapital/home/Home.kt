@@ -3,6 +3,7 @@ package andrey.murzin.com.personcapital.home
 import andrey.murzin.com.personcapital.R
 import andrey.murzin.com.personcapital.investmentportfolio.InvestmentPortfolio
 import andrey.murzin.com.personcapital.oprationhistory.OperationHistory
+import andrey.murzin.com.personcapital.settings.Settings
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.material.BottomNavigation
@@ -25,8 +26,13 @@ enum class HomeSections(
     @DrawableRes val icon: Int,
     val route: String
 ) {
-    INVESTMENT_PORTFOLIO(R.string.investment_portfolio, R.drawable.ic_investment, "home/portfolio"),
-    OPERATION_HISTORY(R.string.operation_history, R.drawable.ic_history, "home/history")
+    INVESTMENT_PORTFOLIO(
+        R.string.investment_portfolio,
+        R.drawable.ic_investment_24dp,
+        "home/portfolio"
+    ),
+    OPERATION_HISTORY(R.string.operation_history, R.drawable.ic_history_24dp, "home/history"),
+    SETTINGS(R.string.settings, R.drawable.ic_settings_24dp, "home/settings"),
 }
 
 @Composable
@@ -63,4 +69,5 @@ fun PersonCapitalBottomBar(
 fun NavGraphBuilder.addHomeGraph(modifier: Modifier) {
     composable(HomeSections.OPERATION_HISTORY.route) { OperationHistory(modifier) }
     composable(HomeSections.INVESTMENT_PORTFOLIO.route) { InvestmentPortfolio(modifier) }
+    composable(HomeSections.SETTINGS.route) { Settings(modifier) }
 }

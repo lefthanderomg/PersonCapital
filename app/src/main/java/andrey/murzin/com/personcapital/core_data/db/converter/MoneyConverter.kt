@@ -1,4 +1,4 @@
-package andrey.murzin.com.personcapital.core.data.db.converter
+package andrey.murzin.com.personcapital.core_data.db.converter
 
 import andrey.murzin.com.personcapital.oprationhistory.data.entity.MoneyEntity
 import androidx.room.TypeConverter

@@ -1,6 +1,6 @@
 package andrey.murzin.com.personcapital.core.di
 
-import andrey.murzin.com.personcapital.core.data.db.PersonCapitalDb
+import andrey.murzin.com.personcapital.core_data.db.PersonCapitalDb
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package andrey.murzin.com.personcapital.core.data.repository
+package andrey.murzin.com.personcapital.core_data.repository
 
 import android.content.res.Resources
 import androidx.annotation.RawRes

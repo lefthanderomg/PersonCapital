@@ -1,8 +1,8 @@
 package andrey.murzin.com.personcapital.core.di
 
-import andrey.murzin.com.personcapital.core.data.db.PersonCapitalDb
-import andrey.murzin.com.personcapital.core.data.db.PersonCapitalDb.Companion.DB_NAME
-import andrey.murzin.com.personcapital.core.data.repository.ResourceManager
+import andrey.murzin.com.personcapital.core_data.db.PersonCapitalDb
+import andrey.murzin.com.personcapital.core_data.db.PersonCapitalDb.Companion.DB_NAME
+import andrey.murzin.com.personcapital.core_data.repository.ResourceManager
 import android.content.Context
 import androidx.room.Room
 import dagger.Module

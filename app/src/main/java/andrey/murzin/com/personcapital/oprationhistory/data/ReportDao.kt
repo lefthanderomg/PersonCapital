@@ -1,6 +1,6 @@
 package andrey.murzin.com.personcapital.oprationhistory.data
 
-import andrey.murzin.com.personcapital.core.data.db.dao.BaseDao
+import andrey.murzin.com.personcapital.core_data.db.dao.BaseDao
 import andrey.murzin.com.personcapital.oprationhistory.data.entity.BrokerReportEntity
 import androidx.room.Dao
 import androidx.room.Query

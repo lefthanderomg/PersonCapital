@@ -1,7 +1,7 @@
 package andrey.murzin.com.personcapital.core.di
 
-import andrey.murzin.com.personcapital.core.data.parser.TinkoffBrokerReportXLSXParser
-import andrey.murzin.com.personcapital.core.data.parser.XLSXParser
+import andrey.murzin.com.personcapital.core_data.parser.TinkoffBrokerReportXLSXParser
+import andrey.murzin.com.personcapital.core_data.parser.XLSXParser
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package andrey.murzin.com.personcapital.core.data.db.converter
+package andrey.murzin.com.personcapital.core_data.db.converter
 
 interface BaseConverter<FROM, TO> {
 
