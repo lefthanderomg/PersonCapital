@@ -3,6 +3,7 @@ package andrey.murzin.com.personcapital.theme
 import androidx.compose.ui.unit.dp
 
 val spaceNo = 0.dp
+val spaceXTiny = 1.dp
 val spaceTiny = 2.dp
 val spaceXXXSmall = 4.dp
 val spaceXXSmall = 6.dp

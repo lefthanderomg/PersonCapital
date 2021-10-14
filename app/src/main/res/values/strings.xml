@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">PersonCapital</string>
-    <string name="investment_portfolio">Investment portfolio</string>
+    <string name="investment_portfolio">Portfolio</string>
     <string name="operation_history">Operation history</string>
     <string name="settings">Settings</string>
+    <string name="total_price">Total price</string>
 </resources>

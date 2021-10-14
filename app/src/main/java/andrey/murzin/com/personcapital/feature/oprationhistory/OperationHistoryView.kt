@@ -2,6 +2,7 @@ package andrey.murzin.com.personcapital.feature.oprationhistory
 
 import andrey.murzin.com.personcapital.theme.spaceMedium
 import andrey.murzin.com.personcapital.core.utils.getText
+import andrey.murzin.com.personcapital.feature.base.Loading
 import andrey.murzin.com.personcapital.feature.oprationhistory.model.BrokerReport
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -73,13 +74,6 @@ private fun ReportsList(
                 }
             }
         }
-    }
-}
-
-@Composable
-private fun Loading(modifier: Modifier) {
-    Box(contentAlignment = Alignment.Center, modifier = modifier.fillMaxSize()) {
-        CircularProgressIndicator()
     }
 }
 

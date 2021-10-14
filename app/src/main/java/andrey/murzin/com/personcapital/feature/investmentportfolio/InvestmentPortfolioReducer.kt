@@ -10,10 +10,9 @@ class InvestmentPortfolioReducer : Reducer<InvestmentPortfolioState, InvestmentP
         is InvestmentPortfolioAction.GetInvestmentPortfolio -> state
         is InvestmentPortfolioAction.Success -> state.copy(
             totalPrice = action.value.totalCoast,
-            isLoading = true
+            isLoading = false
         )
         is InvestmentPortfolioAction.Error -> state
         is InvestmentPortfolioAction.Loading -> state.copy(isLoading = true)
     }
-
 }

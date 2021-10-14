@@ -1,6 +1,5 @@
-package andrey.murzin.com.personcapital.core
+package andrey.murzin.com.personcapital
 
-import andrey.murzin.com.personcapital.PersonNavGraph
 import andrey.murzin.com.personcapital.theme.PersonCapitalTheme
 import andrey.murzin.com.personcapital.feature.home.HomeSections
 import andrey.murzin.com.personcapital.feature.home.PersonCapitalBottomBar

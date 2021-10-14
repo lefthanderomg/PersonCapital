@@ -6,6 +6,7 @@ import andrey.murzin.com.personcapital.core_data.repository.ResourceManager
 import andrey.murzin.com.personcapital.core.utils.safeCall
 import andrey.murzin.com.personcapital.feature.oprationhistory.data.ReportDao
 import andrey.murzin.com.personcapital.feature.oprationhistory.data.mapper.BrokerReportMapper
+import andrey.murzin.com.personcapital.feature.oprationhistory.model.ResultWrapper
 import andrey.murzin.com.personcapital.feature.settings.domain.ISettingsRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -20,13 +21,10 @@ class SettingsRepository @Inject constructor(
     private val brokerReportMapper: BrokerReportMapper,
 ) : ISettingsRepository{
 
-    override suspend fun initMockData() = withContext(dispatcher) {
+    override suspend fun initMockData(): ResultWrapper<Unit> =
         safeCall(dispatcher = dispatcher) {
             val stream = resourceManager.getRawStream(R.raw.mock_data)
             val reports = parserXLSXParser.parse(stream)
             reportDao.insertAll(brokerReportMapper.from(reports))
         }
-
-        Unit
-    }
 }
