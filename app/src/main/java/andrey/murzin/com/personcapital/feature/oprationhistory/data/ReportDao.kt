@@ -10,5 +10,5 @@ import kotlinx.coroutines.flow.Flow
 interface ReportDao : BaseDao<BrokerReportEntity> {
 
     @Query("SELECT * FROM BrokerReportEntity")
-    fun getAll(): Flow<List<BrokerReportEntity>>
+    suspend fun getAll(): List<BrokerReportEntity>
 }
