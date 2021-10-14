@@ -1,7 +1,7 @@
 package andrey.murzin.com.personcapital.core.utils
 
-import andrey.murzin.com.personcapital.oprationhistory.model.Currency
-import andrey.murzin.com.personcapital.oprationhistory.model.Money
+import andrey.murzin.com.personcapital.feature.oprationhistory.model.Currency
+import andrey.murzin.com.personcapital.feature.oprationhistory.model.Money
 import java.math.BigDecimal
 import javax.inject.Inject
 

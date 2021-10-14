@@ -1,6 +1,6 @@
 package andrey.murzin.com.personcapital.core_data.db.converter
 
-import andrey.murzin.com.personcapital.oprationhistory.data.entity.MoneyEntity
+import andrey.murzin.com.personcapital.feature.oprationhistory.data.entity.MoneyEntity
 import androidx.room.TypeConverter
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString

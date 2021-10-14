@@ -1,6 +1,6 @@
 package andrey.murzin.com.personcapital.core.utils
 
-import andrey.murzin.com.personcapital.oprationhistory.model.ResultWrapper
+import andrey.murzin.com.personcapital.feature.oprationhistory.model.ResultWrapper
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 
