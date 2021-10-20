@@ -44,7 +44,7 @@ fun PersonCapitalBottomBar(
     val currentRoute = navBackStackEntry?.destination?.route
 
     BottomNavigation(
-        modifier = Modifier.navigationBarsPadding(left = false, right = false)
+        modifier = Modifier.navigationBarsPadding(start = false, end = false)
     ) {
         tabs.forEach { tab ->
             BottomNavigationItem(
