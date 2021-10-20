@@ -9,6 +9,9 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ReportDao : BaseDao<BrokerReportEntity> {
 
+    @Query("SELECT * FROM BrokerReportEntity LIMIT :pageSize OFFSET :page * :pageSize")
+    suspend fun getByPage(pageSize: Int, page: Int): List<BrokerReportEntity>
+
     @Query("SELECT * FROM BrokerReportEntity")
     suspend fun getAll(): List<BrokerReportEntity>
 }

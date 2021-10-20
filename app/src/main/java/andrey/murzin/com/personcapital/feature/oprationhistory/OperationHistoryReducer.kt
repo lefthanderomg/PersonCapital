@@ -11,7 +11,8 @@ class OperationHistoryReducer : Reducer<OperationHistoryState, OperationHistoryA
         is OperationHistoryAction.Error -> state.copy(
             error = Error(action.throwable.message.orEmpty()),
             isLoading = false,
-            isRefreshing = false
+            isRefreshing = false,
+            isLoadingMore = false,
         )
         is OperationHistoryAction.Loading -> state.copy(
             isLoading = true,
@@ -25,10 +26,22 @@ class OperationHistoryReducer : Reducer<OperationHistoryState, OperationHistoryA
         )
         is OperationHistoryAction.Success -> state.copy(
             isLoading = false,
+            isLoadingMore = false,
             error = null,
             isRefreshing = false,
-            reports = action.result
+            reports = action.result,
+            canLoadMore = action.canLoadMore
         )
-        is OperationHistoryAction.GetOperationHistory -> state
+        is OperationHistoryAction.LoadingMore -> state.copy(isLoadingMore = true)
+        is OperationHistoryAction.LoadData -> {
+            if (!state.isLoading && !state.isLoadingMore && state.canLoadMore) {
+                val page = state.page + 1
+                state.copy(
+                    page = page
+                )
+            } else {
+                state
+            }
+        }
     }
 }

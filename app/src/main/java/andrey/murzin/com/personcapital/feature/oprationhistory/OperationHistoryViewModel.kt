@@ -11,7 +11,7 @@ class OperationHistoryViewModel @Inject constructor(
 ) : BaseViewModel<OperationHistoryAction, OperationHistoryState>(store) {
 
     init {
-        action(OperationHistoryAction.GetOperationHistory)
+        action(OperationHistoryAction.LoadData)
     }
 }
 

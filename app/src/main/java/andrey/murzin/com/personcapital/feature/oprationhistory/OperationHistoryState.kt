@@ -5,18 +5,11 @@ import androidx.compose.runtime.Immutable
 
 @Immutable
 data class OperationHistoryState(
-    val reports: List<BrokerReport>,
+    val reports: List<BrokerReport> = emptyList(),
     val isRefreshing: Boolean = false,
     val isLoading: Boolean = false,
     val error: Error? = null,
-) {
-
-    companion object {
-        val EMPTY = OperationHistoryState(
-            emptyList(),
-            isRefreshing = false,
-            isLoading = false,
-            error = null
-        )
-    }
-}
+    val isLoadingMore: Boolean = false,
+    val page: Int = 0,
+    val canLoadMore: Boolean = true,
+)

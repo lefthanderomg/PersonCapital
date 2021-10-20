@@ -23,6 +23,6 @@ object OperationHistoryModule {
         Store(
             reducer = OperationHistoryReducer(),
             middlewares = listOf(OperationHistoryMiddleware(repository)),
-            initialState = OperationHistoryState.EMPTY
+            initialState = OperationHistoryState()
         )
 }

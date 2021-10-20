@@ -6,5 +6,5 @@ import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
 
 interface IReportRepository {
-    suspend fun getReports() : ResultWrapper<List<BrokerReport>>
+    suspend fun getReports(page: Int): ResultWrapper<List<BrokerReport>>
 }

@@ -4,7 +4,6 @@ import andrey.murzin.com.personcapital.feature.oprationhistory.data.mapper.Broke
 import andrey.murzin.com.personcapital.feature.oprationhistory.domain.IReportRepository
 import andrey.murzin.com.personcapital.feature.oprationhistory.model.BrokerReport
 import andrey.murzin.com.personcapital.feature.oprationhistory.model.ResultWrapper
-import android.util.Log
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -17,9 +16,15 @@ class ReportRepository @Inject constructor(
     private val brokerReportMapper: BrokerReportMapper
 ) : IReportRepository {
 
-    override suspend fun getReports(): ResultWrapper<List<BrokerReport>> = withContext(dispatcher) {
-        val reports = reportDao.getAll()
+    override suspend fun getReports(page: Int): ResultWrapper<List<BrokerReport>> = withContext(dispatcher) {
+        val reports = reportDao.getByPage(PAGE_SIZE, page)
+        val reportAll = reportDao.getAll()
 
+        println()
         ResultWrapper.Success(brokerReportMapper.to(reports))
+    }
+
+    companion object {
+        private const val PAGE_SIZE = 100
     }
 }

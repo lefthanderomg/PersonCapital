@@ -5,7 +5,6 @@ import andrey.murzin.com.personcapital.feature.investmentportfolio.model.InvestP
 import andrey.murzin.com.personcapital.feature.oprationhistory.data.ReportDao
 import andrey.murzin.com.personcapital.feature.oprationhistory.model.Currency
 import andrey.murzin.com.personcapital.feature.oprationhistory.model.ResultWrapper
-import android.util.Log
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
