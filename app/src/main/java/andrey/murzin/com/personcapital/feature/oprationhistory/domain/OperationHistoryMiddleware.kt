@@ -28,7 +28,7 @@ class OperationHistoryMiddleware(
                             is ResultWrapper.Error -> OperationHistoryAction.Error(result.throwable)
                         }
                     }.onStart {
-                        emit(if (operationHistoryState.page == 1) OperationHistoryAction.Loading else OperationHistoryAction.LoadingMore)
+                        emit(if (operationHistoryState.page == 0) OperationHistoryAction.Loading else OperationHistoryAction.LoadingMore)
                     }
             }
 

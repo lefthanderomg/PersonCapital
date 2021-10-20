@@ -21,6 +21,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 @Composable
 fun OperationHistory(modifier: Modifier, viewModel: OperationHistoryViewModel = hiltViewModel()) {
     val state = viewModel.state.collectAsState().value
+
     when {
         state.error != null -> ErrorScreen()
         state.isLoading -> Loading(modifier = modifier)
@@ -39,6 +40,7 @@ private fun ReportsList(
     reports: List<BrokerReport>,
     loadMore: () -> Unit,
 ) {
+    Log.d("STATE", "ReportsList")
     LazyColumn(modifier = modifier.fillMaxSize()) {
         itemsIndexed(reports) { index, item ->
             if (index == reports.lastIndex) {
@@ -72,10 +74,10 @@ private fun ReportsList(
 
 @Composable
 private fun ErrorScreen() {
-
+    Log.d("STATE", "ErrorScreen")
 }
 
 @Composable
 private fun EmptyScreen() {
-
+    Log.d("STATE", "EmptyScreen")
 }
